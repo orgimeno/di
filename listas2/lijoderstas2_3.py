@@ -10,7 +10,10 @@ for j in range(1,len(numeros)+1):
     for k in range(1,j):
         if k!=1 and j%k==0 and j not in sobrantes:
             sobrantes+=[j]
-print("primos: "+str(sobrantes))
-for sobrantes in numeros:
-    print(str(sobrantes))
+list(set(sobrantes))
+for l in numeros:
+    for k in sobrantes:
+        print(str(k)+str(l))
+        if k==l:
+            numeros.remove(k)
 print("primos: "+str(sobrantes))
