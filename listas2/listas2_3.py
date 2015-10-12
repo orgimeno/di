@@ -3,18 +3,12 @@
 print("Digame un numero")
 numero=input()
 numeros=[]
-numerosP=[]
+sobrantes=[]
 for i in range(1,numero+1):
     numeros+=[i]
-for j in numeros:
+for j in range(1,len(numeros)+1):
     for k in range(1,j):
-        if k!=1 and j%k==0: 
-            if j in numeros:
-                numerosP+=[j]
-for l in numeros:
-    for m in numerosP:
-        if m==l:
-            if l in numeros:
-                numeros.remove(l)
-print("Primos hasta "+str(numero)+": "+str(numeros))
-        
+        if k!=1 and j%k==0 and j in numeros:
+            numeros.remove(j)
+
+print("primos hasta "+str(numero)+": "+str(numeros))
