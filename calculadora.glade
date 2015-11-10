@@ -161,12 +161,12 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="button10">
+              <object class="GtkButton" id="button0">
                 <property name="label" translatable="yes">0</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <signal name="clicked" handler="button10_clicked_cb" swapped="no"/>
+                <signal name="clicked" handler="button0_clicked_cb" swapped="no"/>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -191,12 +191,12 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="button0">
+              <object class="GtkButton" id="buttonResultado">
                 <property name="label" translatable="yes">=</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <signal name="clicked" handler="button0_clicked_cb" swapped="no"/>
+                <signal name="clicked" handler="buttonResultado_clicked_cb" swapped="no"/>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -264,6 +264,30 @@
                 <property name="width">1</property>
                 <property name="height">1</property>
               </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="buttonClear">
+                <property name="label" translatable="yes">Borrar</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="buttonClear_clicked_cb" swapped="no"/>
+              </object>
+              <packing>
+                <property name="left_attach">4</property>
+                <property name="top_attach">0</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
             </child>
           </object>
           <packing>
