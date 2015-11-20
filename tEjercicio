@@ -1,0 +1,8 @@
+CREATE TABLE tusuario (
+    "id" INTEGER NOT NULL,
+    "usuario" TEXT,
+    "password" TEXT,
+    "nombre" TEXT,
+    "apellido" TEXT,
+    "direccion" TEXT
+, "email" TEXT);
