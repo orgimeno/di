@@ -14,10 +14,14 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="label" translatable="yes">Calculadora de Descuentos</property>
+            <attributes>
+              <attribute name="weight" value="bold"/>
+            </attributes>
           </object>
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
+            <property name="padding">7</property>
             <property name="position">0</property>
           </packing>
         </child>
@@ -25,7 +29,10 @@
           <object class="GtkLabel" id="label8">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Calcula el porcentaje de descuento del 5%, 10% y 20% sobre el precio indicado</property>
+            <property name="margin_left">57</property>
+            <property name="margin_right">71</property>
+            <property name="label" translatable="yes">Calcula el porcentaje de descuento del 5%, 10% y 20% sobre el precio indicado.
+Por Óscar Rodríguez Gimeno</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -37,10 +44,17 @@
         <child>
           <object class="GtkLinkButton" id="linkbutton1">
             <property name="label" translatable="yes">button</property>
+            <property name="use_action_appearance">True</property>
+            <property name="related_action"/>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
+            <property name="margin_left">167</property>
+            <property name="margin_right">221</property>
+            <property name="action_name">ir a moodle</property>
+            <property name="relief">half</property>
             <property name="uri">http://iesserpis.edu.gva.es/moodle/</property>
+            <property name="visited">True</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -54,10 +68,14 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
+            <property name="margin_left">164</property>
+            <property name="margin_right">221</property>
+            <signal name="clicked" handler="on_button1_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
+            <property name="padding">15</property>
             <property name="position">3</property>
           </packing>
         </child>
@@ -196,7 +214,7 @@
                   <object class="GtkEntry" id="precio">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="text" translatable="yes">435345</property>
+                    <property name="text" translatable="yes">0</property>
                     <signal name="changed" handler="precio_changed_cb" swapped="no"/>
                   </object>
                   <packing>
@@ -386,6 +404,8 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
+            <property name="margin_left">165</property>
+            <property name="margin_right">173</property>
             <property name="relief">half</property>
             <property name="use_stock">True</property>
             <property name="always_show_image">True</property>

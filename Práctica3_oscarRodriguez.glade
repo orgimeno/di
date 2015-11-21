@@ -19,7 +19,6 @@
             <attributes>
               <attribute name="weight" value="bold"/>
               <attribute name="foreground" value="#5c5b35356666"/>
-              <attribute name="background" value="#adad7f7fa8a7"/>
             </attributes>
           </object>
           <packing>

@@ -6,7 +6,7 @@ from gi.repository import Gtk
 class MainGui:
         def __init__(self):
                 #Variable que deja el nombre del glade
-                self.gladefile = "calculadoraDescuentos.glade"
+                self.gladefile = "P1_2_oscarRodríguezGimeno.glade"
                 self.glade = Gtk.Builder()
                 #Variable que añade el glade con la variable gladefile
                 self.glade.add_from_file(self.gladefile)
@@ -17,6 +17,7 @@ class MainGui:
                 "precio_changed_cb" : self.precio_changed_cb,
                 "gtk_widget_destroy" : self.cerrarVentana,
                 "imagemenuitem10_activate_cb" : self.imagemenuitem10_activate_cb,
+                "on_button1_clicked" : self.on_closeAbout_clicked,
                 "gtk_main_quit" : Gtk.main_quit,
 
                 }
@@ -38,13 +39,14 @@ class MainGui:
 
         def calcular(self,widgets):
                 try:
-                        float(self.precio.get_text())
-                        precio=self.precio.get_text()
-                        descuento=self.descuentoComboBox.get_active_text()
-                        descuentoCalculo=float(precio)*(float(descuento)/100)
-                        total=float(precio)-float(descuentoCalculo)
-                        self.descontado.set_text(str(descuentoCalculo)+" €")
-                        self.total.set_text(str(total)+" €")
+                        if "" != self.precio.get_text():
+                                float(self.precio.get_text())
+                                precio=self.precio.get_text()
+                                descuento=self.descuentoComboBox.get_active_text()
+                                descuentoCalculo=float(precio)*(float(descuento)/100)
+                                total=float(precio)-float(descuentoCalculo)
+                                self.descontado.set_text(str(descuentoCalculo)+" €")
+                                self.total.set_text(str(total)+" €")
                 except:
                         self.total.set_text(" Introduce números")
                         self.descontado.set_text(" válidos")
@@ -54,7 +56,10 @@ class MainGui:
 
         def imagemenuitem10_activate_cb(self, widgets):
                 self.glade.get_object("about").show_all()
-                print("personajee")
+                
+
+        def on_closeAbout_clicked(self, widgets):
+                self.glade.get_object("about").hide()
 
 if __name__== "__main__":
         MainGui()
