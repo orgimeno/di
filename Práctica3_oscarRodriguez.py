@@ -5,7 +5,7 @@ from gi.repository import Gtk
 import sqlite3
 #Clase que carga la interfaz
 class MainGui:
-        conex=sqlite3.connect('tEjercicio1')
+        conex=sqlite3.connect('tEjercicio')
         c=conex.cursor()
         user= ""
         password= ""
@@ -51,7 +51,6 @@ class MainGui:
                         print str(registro)
                         self.conex.commit()                        
                 except sqlite3.Error, e:
-                        mensaje="Error en la insercción "
                         print str(e)
                         
 
