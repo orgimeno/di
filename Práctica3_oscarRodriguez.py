@@ -24,6 +24,8 @@ class MainGui:
                 self.glade.get_object("window1").show_all()
                 #Ejemplo de signal
                 signals = { "aceptar_clicked_cb" : self.aceptar_clicked_cb,
+                "aceptar2_clicked_cb" : self.confirm,
+                "noAceptar_clicked_cb" : self.noConfirm,
                 "gtk_main_quit" : Gtk.main_quit
                 }
                 #self.resultado= self.glade.get_object('entry1')
@@ -45,13 +47,19 @@ class MainGui:
                 self.name= self.name.get_text()
                 self.ape= self.ape.get_text()
                 self.address= self.address.get_text()
-                registro=(self.user, self.password, self.email, self.name, self.ape, self.address)
+                self.glade.get_object("window2").show_all()
+
+        def confirm(self, widgets):
                 try:
+                        registro=(self.user, self.password, self.email, self.name, self.ape, self.address)
                         self.c.execute('insert into tusuario (usuario, password, email, nombre, apellido, direccion) values (?,?,?,?,?,?)',(registro))
-                        print str(registro)
                         self.conex.commit()                        
+                        self.noConfirm(self)
                 except sqlite3.Error, e:
                         print str(e)
+
+        def noConfirm(self, widgets):
+                self.glade.get_object("window2").hide()
                         
 
 
