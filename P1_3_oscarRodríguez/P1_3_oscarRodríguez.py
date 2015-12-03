@@ -10,7 +10,7 @@ class MainGui:
 
         def __init__(self):
                 #Variable que deja el nombre del glade
-                self.gladefile = "Práctica3_oscarRodriguez.glade"
+                self.gladefile = "P1_3_oscarRodríguez.glade"
                 self.glade = Gtk.Builder()
                 #Variable que añade el glade con la variable gladefile
                 self.glade.add_from_file(self.gladefile)
