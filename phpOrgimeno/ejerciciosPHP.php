@@ -15,6 +15,14 @@
 				$("#"+id).toggle();
 			}
 		</script>
+		<style type="text/css">
+		div .row{
+			padding: 5px;
+		}
+		a{
+			margin-left:15%;
+		}
+		</style>
 		<div id="main" class="container" role="main">
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
@@ -167,6 +175,40 @@
 								</thead>
 								<tbody>
 									<?php
+										$columna=0;
+									fotos $directory="img";
+									    $dirint = dir($directory);
+									    echo "<tr>";
+									    while (($archivo = $dirint->read()) !== false)
+									    {
+									        echo "<td><img src='http://localhost:8080/fotos/".$archivo."' style='width:150px; height:150px;'/></td>";
+									        $columna++;
+									        if ($columna==6) {
+									        	echo "</tr><tr>";
+									        	$columna=0;
+									        }
+										 
+									    }
+									    $dirint->close();
+									?>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+				<a href="#" onclick="desplegar('ejercicio48')">Ejercicio 4.8</a>
+					<div style="display: none;" id="ejercicio48">
+						<div class="span4">
+							<h2>Ejercicio 4.8</h2>
+							<table class="table table-bordered">
+								<thead>
+									<tr><th colspan="10" style="text-align:center">Tabla con las fotos del directorio "fotos"</th></tr>
+								</thead>
+								<tbody>
+									<?php
 											$columna=0;
 										    $directory="fotos";
 										    $dirint = dir($directory);
@@ -174,7 +216,7 @@
 										    while (($archivo = $dirint->read()) !== false)
 										    {
 										    	if(eregi(".jpg",$archivo)  ||eregi(".gif",$archivo)  || eregi(".png",$archivo) || ereg(".jpeg", $archivo) ){
-											        echo "<td><img src='http://localhost:8080/fotos/".$archivo."' style='width:150px;'/></td>";
+											        echo "<td><a href='http://localhost:8080/fotos/".$archivo."'><img src='http://localhost:8080/fotos/".$archivo."' style='width:100px; height:100px;'/></a></td>";
 											        $columna++;
 											        if ($columna==6) {
 											        	echo "</tr><tr>";
@@ -186,6 +228,101 @@
 									?>
 								</tbody>
 							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+				<a href="#" onclick="desplegar('ejercicio49')">Ejercicio 4.9</a>
+					<div style="display: none;" id="ejercicio49">
+						<div class="span4">
+							<h2>Ejercicio 4.9</h2>
+							<table class="table table-bordered">
+								<thead>
+									<tr><th colspan="10" style="text-align:center">Tabla con las fotos del directorio "fotos"</th></tr>
+								</thead>
+								<tbody>
+									<?php
+											echo "string";
+									?>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+				<a href="#" onclick="desplegar('ejercicio410')">Ejercicio 4.10</a>
+					<div style="display: none;" id="ejercicio410">
+						<div class="span4">
+							<h2>Ejercicio 4.10</h2>
+							<table class="table table-bordered">
+								<thead>
+									<tr><th colspan="10" style="text-align:center">Tabla con las fotos del directorio "fotos"</th></tr>
+								</thead>
+								<tbody>
+									<?php
+											echo "string";
+									?>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+				<a href="#" onclick="desplegar('ejercicio411')">Ejercicio 4.11</a>
+					<div style="display: none;" id="ejercicio411">
+						<div class="span4">
+							<h2>Ejercicio 4.11</h2>
+							<table class="table table-bordered">
+								<thead>
+									<tr><th colspan="10" style="text-align:center">Tabla con las fotos del directorio "fotos"</th></tr>
+								</thead>
+								<tbody>
+									<?php
+											echo "string";
+									?>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+				<a href="#" onclick="desplegar('ejercicio412')">Ejercicio 4.12</a>
+					<div style="display: none;" id="ejercicio412">
+						<div class="span4">
+							<h2>Ejercicio 4.12</h2>
+							<p>Almacene en un vector los 10 primeros números pares</p>
+									<?php
+										$pares=array();
+										for ($i=0; $i < 20; $i+=2) { 
+											array_push($pares, $i);
+										}
+										foreach ($pares as $par) {
+											echo "</br>".$par;
+										}
+									?>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+				<a href="#" onclick="desplegar('ejercicio413')">Ejercicio 4.13</a>
+					<div style="display: none;" id="ejercicio413">
+						<div class="span4">
+							<h2>Ejercicio 4.13</h2>
+								<?php
+									$v=array("1"=>90,"30"=>7,"e"=>99,"hola"=>43);
+									foreach ($v as $key => $value) 
+										echo "clave: ".$key." => ".$value." valor</br>";
+								?>
 						</div>
 					</div>
 				</div>
