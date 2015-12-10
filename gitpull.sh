@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/user/ad
+cd ad
 git pull
 cd ../di
 git pull
