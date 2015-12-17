@@ -181,9 +181,9 @@
 									    echo "<tr>";
 									    while (($archivo = $dirint->read()) !== false)
 									    {
-									        echo "<td><img src='http://localhost:8080/fotos/".$archivo."' style='width:150px; height:150px;'/></td>";
+									        echo "<td><img src='fotos/".$archivo."' style='width:150px; height:150px;'/></td>";
 									        $columna++;
-									        if ($columna==6) {
+									        if ($columna==4) {
 									        	echo "</tr><tr>";
 									        	$columna=0;
 									        }
@@ -216,9 +216,9 @@
 										    while (($archivo = $dirint->read()) !== false)
 										    {
 										    	if(eregi(".jpg",$archivo)  ||eregi(".gif",$archivo)  || eregi(".png",$archivo) || ereg(".jpeg", $archivo) ){
-											        echo "<td><a href='http://localhost:8080/fotos/".$archivo."'><img src='http://localhost:8080/fotos/".$archivo."' style='width:100px; height:100px;'/></a></td>";
+											        echo "<td><a href='fotos/".$archivo."'><img src='fotos/".$archivo."' style='width:100px; height:100px;'/></a></td>";
 											        $columna++;
-											        if ($columna==6) {
+											        if ($columna==4) {
 											        	echo "</tr><tr>";
 											        	$columna=0;
 											        }
@@ -243,39 +243,44 @@
 									<tr><th colspan="10" style="text-align:center">Tabla con las fotos del directorio "fotos"</th></tr>
 								</thead>
 								<tbody>
-									<?php								
+									<?php
 										$columna=0;
 									    $directory="fotos";
 									    $dirint = dir($directory);
+									    $fotos=array();
 									    $minis=array();
+									    $fotosConMini=array();
 									    echo "<tr>";
 									    while (($archivo = $dirint->read()) !== false)
 									    {
 									    	if(eregi(".jpg",$archivo)  ||eregi(".gif",$archivo)  || eregi(".png",$archivo) || ereg(".jpeg", $archivo) ){
-											    if(strpos($archivo,"mini-")== true)
+											    if(strpos($archivo,'mini-')=== false)
+											    	array_push($fotos, $archivo);
+											    else
 											    	array_push($minis, $archivo);
 										    }
 									    }
-									    foreach ($minis as $mini){
-									    	if(strpos($mini, '.png')== false)
-									    		$original = imagecreatefromjpeg("fotos/".$mini);
-									    	else
-									    		$original = imagecreatefrompng("fotos/".$mini);
-											$thumb = imagecreatetruecolor(50,50); // Lo haremos de un tamaño 50x50
-
-											$ancho = imagesx($original);
-											$alto = imagesy($original);
-											imagecopyresampled($thumb,$original,0,0,0,0,150,150,$ancho,$alto);
-											if(strpos($mini, '.png')== false)
-									    		imagejpeg($thumb,'fotos/mini-'.$mini,90); // 90 es la calidad de compresión;
-									    	else
-									    		imagepng($thumb,'fotos/mini-'.$mini,90); // 90 es la calidad de compresión
-										        echo "<td><a href='http://localhost:8080/fotos/".$mini."'><img src='http://localhost:8080/fotos/mini-".$mini."' style='width:100px; height:100px;'/></a></td>";
-										        $columna++;
-										        if ($columna==6) {
-										        	echo "</tr><tr>";
-										        	$columna=0;
-										        } 	
+									    foreach ($fotos as $foto) {
+									    	foreach ($minis as $mini) {
+									    		if(strpos($mini, $foto))
+									    			array_push($fotosConMini,$foto);
+									    	}
+									    }
+									    foreach (array_diff($fotos,$fotosConMini) as $mini){
+										    echo "<td><a href='fotos/".$mini."'><img src='fotos/".$mini."' style='width:100px; height:100px;'/></a></td>";
+										    $columna++;
+										    if ($columna==4) {
+										      	echo "</tr><tr>";
+										       	$columna=0;
+										    } 	
+									    }
+									    foreach ($fotosConMini as $mini){
+										    echo "<td><a href='fotos/".$mini."'><img src='fotos/mini-".$mini."' style='width:100px; height:100px;'/></a></td>";
+										    $columna++;
+										    if ($columna==4) {
+										      	echo "</tr><tr>";
+										       	$columna=0;
+										    } 	
 									    }
 									    $dirint->close();
 									?>
@@ -297,50 +302,33 @@
 								</thead>
 								<tbody>
 									<?php
-										$columna=0;
-									    $directory="fotos";
-									    $dirint = dir($directory);
-									    $fotos=array();
-									    $minis=array();
-									    $fotosConMini=array();
-									    echo "<tr>";
-									    while (($archivo = $dirint->read()) !== false)
-									    {
-									    	if(eregi(".jpg",$archivo)  ||eregi(".gif",$archivo)  || eregi(".png",$archivo) || ereg(".jpeg", $archivo) ){
-											    if(strpos($archivo,"mini-")== false)
-											    	array_push($fotos, $archivo);
-											    else
-											    	array_push($minis, $archivo);
-										    }
-									    }
-									    foreach ($fotos as $foto) {
-									    	foreach ($minis as $mini) {
-									    		if(strpos($mini, $foto))
-									    			array_push($fotosConMini,$foto);
-									    	}
-									    }
 									    foreach (array_diff($fotos,$fotosConMini) as $mini){
-									    	if(strpos($mini, '.png')== false)
+									    	if(strpos($mini, '.png')== false){
+									    		echo "adios";
 									    		$original = imagecreatefromjpeg("fotos/".$mini);
-									    	else
+									    	}
+									    	else{
+									    		echo "hola";
 									    		$original = imagecreatefrompng("fotos/".$mini);
+									    	}
+									    	echo "stri21312ng";
 											$thumb = imagecreatetruecolor(50,50); // Lo haremos de un tamaño 50x50
 
 											$ancho = imagesx($original);
 											$alto = imagesy($original);
 											imagecopyresampled($thumb,$original,0,0,0,0,150,150,$ancho,$alto);
+											echo "string";
 											if(strpos($mini, '.png')== false)
 									    		imagejpeg($thumb,'fotos/mini-'.$mini,90); // 90 es la calidad de compresión;
 									    	else
 									    		imagepng($thumb,'fotos/mini-'.$mini,90); // 90 es la calidad de compresión
-										        echo "<td><a href='http://localhost:8080/fotos/".$mini."'><img src='http://localhost:8080/fotos/mini-".$mini."' style='width:100px; height:100px;'/></a></td>";
+										        echo "<td><a href='fotos/".$mini."'><img src='fotos/".$mini."' style='width:100px; height:100px;'/></a></td>";
 										        $columna++;
-										        if ($columna==6) {
+										        if ($columna==4) {
 										        	echo "</tr><tr>";
 										        	$columna=0;
-										        } 	
+										        } 
 									    }
-									    $dirint->close();
 									?>
 								</tbody>
 							</table>
