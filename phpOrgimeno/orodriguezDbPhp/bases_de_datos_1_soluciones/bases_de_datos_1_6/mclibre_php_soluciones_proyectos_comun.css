@@ -1,0 +1,93 @@
+/* Curso "Páginas web con PHP"
+   Bartolomé Sintes Marco
+   http://www.mclibre.org
+
+   CSS soluciones de los proyectos
+   4 de noviembre de 2014
+*/
+
+/* Esta parte de la hoja de estilo es común a todos los proyectos */
+
+html, body { 
+  background-color: #FDF0D9; 
+  color: black; 
+  font-family: sans-serif;
+  margin: 0; 
+  padding: 0; 
+}
+
+h1 { 
+  background-color: #EDA87D; 
+  color: white; 
+  text-transform: uppercase; 
+  margin: 0; 
+  padding: 5px;
+}
+
+div#menu { 
+  background-color: #F2BA5F; 
+  color: white; 
+  margin: 0; 
+}
+
+div#menu ul { 
+  list-style-type: none; 
+  margin: 0 5px; 
+  padding: 5px; 
+}
+
+div#menu li { 
+  display: inline; 
+  padding: 0 15px;
+}
+
+div#menu a { 
+  background-color: #F2BA5F; 
+  color: white; 
+  font-weight: bold; 
+}
+
+div#contenido { 
+  padding: 10px; 
+}
+
+input {
+  font-family: monospace;
+}
+
+.aviso {
+  color: red;
+}
+
+img { 
+  border: none; 
+}
+
+tr.neg { 
+  background-color: #F9DDAE; 
+  color: black; 
+}
+
+td, th { 
+  padding-left: 5px; 
+  padding-right: 5px; 
+}
+
+div#pie {
+  border-top: black solid 1px;
+  clear: both;
+  margin: 50px 20px 0px;
+  padding: 5px 0px 0px;
+}
+
+p.ultmod { 
+  text-align: left; 
+  margin-top: 4px; 
+  padding-top: 2px;
+}
+
+p.licencia { 
+ text-align: left; 
+}
+
+/* Esta parte de la hoja de estilo es específica de este proyecto */
