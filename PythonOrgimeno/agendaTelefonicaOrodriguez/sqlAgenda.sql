@@ -1,0 +1,15 @@
+CREATE TABLE usuario ( "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "usuario" TEXT, "password" TEXT, "nombre" TEXT, "apellido" TEXT, "direccion" TEXT , "email" TEXT);
+
+CREATE TABLE agenda(
+	"id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"usuario" INTEGER NOT NULL,
+	"nombre" TEXT NOT NULL
+);
+
+CREATE TABLE registro(
+	"id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"agenda" INTEGER NOT NULL,
+	"nombre" VARCHAR(40),
+	"telefono" VARCHAR(20) NOT NULL
+);
+
